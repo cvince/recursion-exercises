@@ -39,30 +39,24 @@ function reverse (l) {
 
 function linReverse(list){
 
-  if(list === null){ return null; }
+  if(list===null){
+    return null;
+  }
 
-  function r(l, lt){
-    console.log(l)
-    console.log(lt)
-    console.log(l.head)
-    console.log(lt.tail)
-    if(lt === null){
-      return l;
+  function r(l, acc){
+
+    console.log(acc);
+
+    if(l === null){
+      return acc;
     }
-
-    // return {
-    //   head: lt.head,
-    //   tail: lt
-    // }
-
-    return append(r(l.tail, lt.tail), { head: l.head, tail: null});
-
-    // return append( r(l.head, lt.tail) , { head: l.head, tail: l.tail }) ;
+    return r(l.tail, { head: l.head, tail: acc });
   }
 
-  if(list.tail !== null){
-    return r(list, list.tail);
+  if(list !== null){
+    return r(list, null);
   }
+
 }
 
 /* some figuring out */
