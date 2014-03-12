@@ -44,13 +44,19 @@ function linReverse(list){
   function r(l, lt){
     console.log(l)
     console.log(lt)
-    console.log(l.tail)
+    console.log(l.head)
     console.log(lt.tail)
-    if(lt.tail === null){
-      return { head: l.head, tail: null}
+    if(lt === null){
+      return l;
     }
 
-    return append( r(lt.head, l.tail), {head: lt.head, tail: l.tail} )
+    // return {
+    //   head: lt.head,
+    //   tail: lt
+    // }
+
+    return append(r(l.tail, lt.tail), { head: l.head, tail: null});
+
     // return append( r(l.head, lt.tail) , { head: l.head, tail: l.tail }) ;
   }
 
