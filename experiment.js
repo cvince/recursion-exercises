@@ -38,26 +38,22 @@ function reverse (l) {
 //iterative linear
 
 function linReverse(list){
-
   if(list===null){
     return null;
   }
-
   function r(l, acc){
-
     console.log(acc);
-
     if(l === null){
       return acc;
     }
     return r(l.tail, { head: l.head, tail: acc });
   }
-
   if(list !== null){
     return r(list, null);
   }
-
 }
+
+
 
 /* some figuring out */
 
