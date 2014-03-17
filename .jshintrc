@@ -1,0 +1,12 @@
+{
+  "globals": {
+    "google"    : false,
+    "describe"  : false,
+    "jquery"    : false,
+    "$"         : false,
+    "_"         : false
+  },
+  "browser"     : true,
+  "node"        : true,
+  "jquery"      : true
+}
