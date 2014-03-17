@@ -2,6 +2,10 @@
 
 //{head: { val: 1, next: { val: 3, next: {val: 7, next: null}}}}
 
+function ListNode (value){
+  return { val: value, next: null };
+}
+
 function LL(){
     this.head = null;
 }
@@ -31,16 +35,16 @@ LL.prototype = {
 
   push: function(element){
 
-    var obj = { val: element, next: null };
+    var newNode = new ListNode(element);
 
-    if(this.head === null){
-      this.head = obj;
+    if(this.empty() === true){
+      this.head = newNode;
     }else{
       var curr = this.head;
       while(curr.next !== null){
         curr = curr.next;
       }
-      curr.next = obj;
+      curr.next = newNode;
     }
 
     var output = this.head;
@@ -75,9 +79,7 @@ LL.prototype = {
   },
 
   isElement: function(element){
-    if(this.empty()===true)
-      return false;
-    }
+    if(this.empty()===true) return false;
     else{
       var curr = this.head;
       while(curr.next !== null){
@@ -93,6 +95,7 @@ LL.prototype = {
 
 
 var ll = new LL();
+
 ll.push(0);
 ll.push(1);
 ll.push(2);
