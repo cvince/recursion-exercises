@@ -33,7 +33,7 @@ function BST(){
       if(tree.left === null){
         tree.left = new BinaryTree(val);
       }else{
-        while(curr.left!== null){
+        while(curr.left !== null){
           curr = curr.left;
         }
         this.insert(curr, val);
@@ -43,7 +43,7 @@ function BST(){
 
   C.prototype.arrayToBst = function(array){
 
-    var mid = Math.ceil(array.length/2);
+    var mid = Math.floor(array.length/2);
     this.bst = new BinaryTree(array[mid]);
 
     for(var i = 1; i<=mid; i++){
@@ -51,8 +51,32 @@ function BST(){
       this.insert(this.bst, array[mid+i]);
     }
 
+    return this.bst;
 
   };
+
+  C.prototype.rangeSearchBst = function(input, min, max){
+
+    var outputArr = [];
+
+
+    var currR = input;
+    var currL = input;
+
+    while(currL.left !== null && currL.left.root > min){
+        currL = currL.left;
+        outputArr.unshift(currL.root);
+        console.log(currL);
+    }
+
+    while(currR.right !== null && currR.right.root < max){
+        currR = currR.right;
+        outputArr.push(currR.root);
+        console.log(currR);
+    }
+
+    console.log(outputArr);
+  }
 
   return new C();
 
@@ -64,6 +88,8 @@ var bst = new BST();
 
 var array = [1, 2, 3, 4];
 
-bst.arrayToBst(array);
+//bst.arrayToBst(array);
+
+bst.rangeSearchBst(bst.arrayToBst([1,5,6,22,34,46,48,51,63,69,72,83,95]), 7, 64);
 
 JSON.stringify(bst.bst);
