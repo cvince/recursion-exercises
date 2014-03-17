@@ -54,10 +54,11 @@ function BST(){
 
   };
 
-
   return new C();
 
 }
+
+//testing
 
 var bst = new BST();
 
@@ -66,25 +67,3 @@ var array = [1, 2, 3, 4];
 bst.arrayToBst(array);
 
 JSON.stringify(bst.bst);
-
-
-  // C.prototype.populate = function(array){
-
-  //   var mid = Math.ceil(array.length/2);
-
-  //   binaryTree.root = array[mid];
-  //   binaryTree.root.left = BinaryTree(array[mid-1]);
-  //   binaryTree.root.right = BinaryTree(array[mid+1]);
-
-  // }
-
-
-
-// {
-//   root: 5,
-//   left: null,
-//   right: null
-// };
-
-
-// {root: 5, left: null, right: {root: 7, left: null, right: null}}
