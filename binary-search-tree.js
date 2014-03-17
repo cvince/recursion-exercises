@@ -41,10 +41,33 @@ function BST(){
     }
   };
 
-  C.prototype.array = function(array){
+  C.prototype.arrayToBst = function(array){
 
     var mid = Math.ceil(array.length/2);
     this.bst = new BinaryTree(array[mid]);
+
+    for(var i = 1; i<=mid; i++){
+      this.insert(this.bst, array[mid-i]);
+      this.insert(this.bst, array[mid+i]);
+    }
+
+
+  };
+
+
+  return new C();
+
+}
+
+var bst = new BST();
+
+var array = [1, 2, 3, 4];
+
+bst.arrayToBst(array);
+
+JSON.stringify(bst.bst);
+
+
   // C.prototype.populate = function(array){
 
   //   var mid = Math.ceil(array.length/2);
@@ -55,16 +78,13 @@ function BST(){
 
   // }
 
-  };
 
 
-  return new C();
-
-}
-
-
-
-{root: 5, left: null, right: null};
+// {
+//   root: 5,
+//   left: null,
+//   right: null
+// };
 
 
-{root: 5, left: null, right: {root: 7, left: null, right: null}}
+// {root: 5, left: null, right: {root: 7, left: null, right: null}}
