@@ -59,20 +59,16 @@ function BST(){
 
     var outputArr = [];
 
-
-    var currR = input;
-    var currL = input;
+    var currR = currL = input;
 
     while(currL.left !== null && currL.left.root > min){
         currL = currL.left;
         outputArr.unshift(currL.root);
-        console.log(currL);
     }
 
     while(currR.right !== null && currR.right.root < max){
         currR = currR.right;
         outputArr.push(currR.root);
-        console.log(currR);
     }
 
     console.log(outputArr);
@@ -88,8 +84,7 @@ var bst = new BST();
 
 var array = [1, 2, 3, 4];
 
-//bst.arrayToBst(array);
+console.log(JSON.stringify(bst.arrayToBst(array)));
 
-bst.rangeSearchBst(bst.arrayToBst([1,5,6,22,34,46,48,51,63,69,72,83,95]), 7, 64);
+console.log(bst.rangeSearchBst(bst.arrayToBst([1,5,6,22,34,46,48,51,63,69,72,83,95]), 7, 64));
 
-JSON.stringify(bst.bst);
